@@ -1,0 +1,85 @@
+DROP DATABASE IF EXISTS CRUD_Livros;
+CREATE DATABASE CRUD_Livros;
+USE CRUD_Livros;
+
+CREATE TABLE tbl_Livro (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Nome VARCHAR(50) NOT NULL,
+    Preco FLOAT,
+    Data_Pub DATE,
+    Num_Paginas INT NOT NULL,
+    Cod_Editora INT,
+    ID_Idioma INT NOT NULL,
+    ID_Img INT NOT NULL
+);
+
+CREATE TABLE tbl_Autor (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Nome VARCHAR(30) NOT NULL,
+    Sobrenome VARCHAR(100)
+);
+
+CREATE TABLE tbl_Categoria (
+    Cod INT AUTO_INCREMENT PRIMARY KEY,
+    Nome VARCHAR(30) NOT NULL UNIQUE
+);
+
+CREATE TABLE tbl_Editora (
+    Cod INT AUTO_INCREMENT PRIMARY KEY,
+    Nome VARCHAR(50) NOT NULL UNIQUE
+);
+
+CREATE TABLE tbl_Idioma (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Nome VARCHAR(50) NOT NULL UNIQUE
+);
+
+CREATE TABLE tbl_Imagem (
+	ID INT AUTO_INCREMENT PRIMARY KEY,
+    Nome VARCHAR(100) NOT NULL UNIQUE,
+    Extension VARCHAR(6) NOT NULL,
+    Tamanho_KB FLOAT NOT NULL,
+    Data DATETIME NOT NULL
+);
+
+CREATE TABLE tbl_Categoriza (
+    ID_Livro INT,
+    Cod_Categoria INT,
+    PRIMARY KEY (Cod_Categoria, ID_Livro)
+);
+
+CREATE TABLE tbl_Escreve (
+    ID_Livro INT,
+    ID_Autor INT,
+    PRIMARY KEY (ID_Livro, ID_Autor)
+);
+ 
+ALTER TABLE tbl_Livro ADD CONSTRAINT FK_LivroxEditora
+FOREIGN KEY (Cod_Editora)
+REFERENCES tbl_Editora (Cod)
+ON DELETE SET NULL;
+ 
+ALTER TABLE tbl_Livro ADD CONSTRAINT FK_LivroxIdioma
+FOREIGN KEY (ID_Idioma)
+REFERENCES tbl_Idioma (ID)
+ON DELETE RESTRICT;
+ 
+ALTER TABLE tbl_Categoriza ADD CONSTRAINT FK_CategorizaxLivro
+FOREIGN KEY (ID_Livro)
+REFERENCES tbl_Livro (ID)
+ON DELETE CASCADE;
+ 
+ALTER TABLE tbl_Categoriza ADD CONSTRAINT FK_CategoriaxCategoria
+FOREIGN KEY (Cod_Categoria)
+REFERENCES tbl_Categoria (Cod)
+ON DELETE CASCADE;
+
+ALTER TABLE tbl_Escreve ADD CONSTRAINT FK_EscrevexLivro
+FOREIGN KEY (ID_Livro)
+REFERENCES tbl_Livro (ID)
+ON DELETE CASCADE;
+ 
+ALTER TABLE tbl_Escreve ADD CONSTRAINT FK_EscrevexAutor
+FOREIGN KEY (ID_Autor)
+REFERENCES tbl_Autor (ID)
+ON DELETE CASCADE;
