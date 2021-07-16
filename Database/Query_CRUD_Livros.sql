@@ -8,6 +8,7 @@ CREATE TABLE tbl_Livro (
     Preco FLOAT,
     Data_Pub DATE,
     Num_Paginas INT NOT NULL,
+    Sinopse TEXT,
     Cod_Editora INT,
     ID_Idioma INT NOT NULL,
     ID_Img INT NOT NULL
@@ -53,6 +54,11 @@ CREATE TABLE tbl_Escreve (
     ID_Autor INT,
     PRIMARY KEY (ID_Livro, ID_Autor)
 );
+
+ALTER TABLE tbl_Livro ADD CONSTRAINT FK_LivroxImagem
+FOREIGN KEY (ID_Img)
+REFERENCES tbl_Imagem (ID)
+ON DELETE RESTRICT;
  
 ALTER TABLE tbl_Livro ADD CONSTRAINT FK_LivroxEditora
 FOREIGN KEY (Cod_Editora)
