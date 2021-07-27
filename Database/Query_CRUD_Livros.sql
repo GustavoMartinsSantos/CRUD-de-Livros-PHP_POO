@@ -4,7 +4,7 @@ USE CRUD_Livros;
 
 CREATE TABLE tbl_Livro (
     ID INT AUTO_INCREMENT PRIMARY KEY,
-    Nome VARCHAR(50) NOT NULL,
+    Nome VARCHAR(100) NOT NULL,
     Preco FLOAT,
     Data_Pub DATE,
     Num_Paginas INT NOT NULL,
