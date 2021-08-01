@@ -7,4 +7,7 @@ Veja o modelo Entidade e Relacionamento dos dados que serão armazenados no sist
 <br>
 
 ## Modelo Lógico
-![ModeloLogico_CRUD-Livros](https://user-images.githubusercontent.com/62625567/126000378-7c551951-f7f1-4231-8601-bdd981756927.png)
+![ModeloLogico_CRUD-Livros](https://user-images.githubusercontent.com/62625567/127215102-d16c14f2-cd17-4525-aeb6-9296f812e6aa.png)
+<br>
+## Diagrama de Classes
+![Screenshot 2021-08-01 173233](https://user-images.githubusercontent.com/62625567/127784632-0d7f9f50-eea6-4c57-b227-4e2c19c74515.png)
