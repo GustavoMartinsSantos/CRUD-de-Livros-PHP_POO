@@ -20,3 +20,7 @@ Além disso, deve-se criar o banco de dados pelo script SQL localizado em `Datab
 
 ## Autoload
 O autoload de classes é feito pelo arquivo localizado em `System/includes/autoloader.php`
+<br>
+
+## Agradecimentos especiais
+Código adaptado de um projeto com <a href="https://github.com/william-costa/wdev-crud-php-pdo-mysql">cadastro de vagas</a>. Vídeos <a>https://www.youtube.com/watch?v=uG64BgrlX7o</a> e <a>https://www.youtube.com/watch?v=BT5QY3VYSsk</a>
