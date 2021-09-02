@@ -114,7 +114,7 @@
                 $size = round($this->getTamanho() / 1024, 2);
                 
                 date_default_timezone_set('America/Sao_Paulo');
-                $data = date('y-m-d H:i:s');
+                $data = date('Y-m-d H:i:s');
 
                 $values = array(
                     'Nome'       =>$this->Nome,
