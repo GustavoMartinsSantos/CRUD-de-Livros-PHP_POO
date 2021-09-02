@@ -13,6 +13,15 @@
                    ."dbname=" . self::$DBNAME
                    , self::$USER
                    , self::$PASS
+                    /*"sqlsrv:Database=crud_livros;
+                               server=192.168.0.33,1433",
+                               "User_CRUD_Livros", 
+                               "YsmeIC792Np"*/
+                    /*
+                    "sqlsrv:Database=crud_livros;
+                               server=localhost",
+                               "sa", 
+                               "YsmeIC792Nj"*/
                 );
             } catch(PDOException $e) {
                 die("ERRO: " . $e->getMessage());
@@ -35,7 +44,7 @@
             }
         }
 
-        public function INSERT (string $table, array $values): int {
+        public function INSERT (string $table, array $values) {
             $keys = array_keys($values);
             $binds = array_fill(0, sizeof($keys), '?');
 
