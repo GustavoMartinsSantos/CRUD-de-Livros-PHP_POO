@@ -50,7 +50,7 @@
                 <?= $Editora->getNome() ?>
             </option>
         <?php } ?>
-            <option value=0>Nenhuma das anteriores</option>
+            <option value=0 <?= $Livro->getEditora()->getCod() == NULL ? "selected" : null ?>>Nenhuma das anteriores</option>
         </select>
 
         <label class="input-group-text">Idioma</label>
